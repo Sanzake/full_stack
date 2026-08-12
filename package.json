@@ -1,0 +1,5 @@
+{
+  "name": "full_stack",
+  "type": "module",
+  "scripts": {"start": "node ./Server/Node_basic/index.js"}
+}
