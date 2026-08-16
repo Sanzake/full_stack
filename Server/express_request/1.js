@@ -11,4 +11,4 @@ app.post("/echo", (req, res) => {
     res.json(data)
 }) 
 
-app.listen("12345", () => console.log("Listening..."))
+app.listen(12345, () => console.log("Listening..."))
