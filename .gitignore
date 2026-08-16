@@ -3,3 +3,5 @@
 t.js
 node_modules/
 biome.json
+.env
+.env.local
