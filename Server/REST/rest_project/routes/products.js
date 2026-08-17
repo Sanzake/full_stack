@@ -40,6 +40,7 @@ router.get("/:id", (req, res) => {
 router.post("/:id", (req, res) => {
 	const id = req.params.id;
 
+	// TODO: maybe add middleware
 	if (req.body.name === undefined || req.body.price === undefined) {
 		res.status(400).json({
 			status: "error",
@@ -48,7 +49,7 @@ router.post("/:id", (req, res) => {
 		});
 		return;
 	}
-
+	// TODO: maybe add middleware
 	if (products[id]) {
 		res.status(409).json({
 			status: 409,
@@ -67,7 +68,7 @@ router.post("/:id", (req, res) => {
 
 router.put("/:id", (req, res) => {
 	const id = req.params.id;
-
+	// TODO: maybe add middleware
 	if (!products[id]) {
 		res.status(404).json({
 			status: 404,
@@ -76,7 +77,7 @@ router.put("/:id", (req, res) => {
 		});
 		return;
 	}
-
+	// TODO: maybe add middleware
 	if (req.body.name === undefined || req.body.price === undefined) {
 		res.status(400).json({
 			status: "error",
@@ -96,7 +97,7 @@ router.put("/:id", (req, res) => {
 
 router.delete("/:id", (req, res) => {
 	const id = req.params.id;
-
+	// TODO: maybe add middleware
 	if (!products[id]) {
 		res.status(404).json({
 			status: 404,
