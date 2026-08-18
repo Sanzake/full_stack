@@ -7,7 +7,7 @@ const app = express();
 app.set("json spaces", 2);
 
 app.use(express.json());
-app.use((err, _req, res, next) => {
+const errorHandler = (err, _req, res, next) => {
 	if (err instanceof SyntaxError) {
 		return res.status(400).json({
 			status: "error",
@@ -16,9 +16,9 @@ app.use((err, _req, res, next) => {
 		});
 	}
 	next();
-});
+};
 
-app.use("/products", router);
+app.use("/products", router, errorHandler);
 
 app.listen(PORT, () => {
 	console.log("Listenning...");

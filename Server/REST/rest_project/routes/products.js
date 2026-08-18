@@ -1,5 +1,7 @@
 import express from "express";
 
+const router = express.Router();
+
 class Product {
 	constructor(id, name, price) {
 		this.id = id;
@@ -9,7 +11,6 @@ class Product {
 }
 
 const products = { 1: new Product(1, "pen", 10), 2: new Product(2, "bag", 60) };
-const router = express.Router();
 
 router.get("/", (req, res) => {
 	const page = req.query.page || 1;
@@ -32,23 +33,25 @@ router.get("/:id", (req, res) => {
 	const id = req.params.id;
 	if (!products[id]) {
 		res.status(404);
-		// ??? return
+		return;
 	}
 	res.json(products[id]);
 });
-
-router.post("/:id", (req, res) => {
-	const id = req.params.id;
-
-	// TODO: maybe add middleware
-	if (req.body.name === undefined || req.body.price === undefined) {
-		res.status(400).json({
+const requsetBodyValidatorMiddlware = (req, res, next) => {
+	const body = req.body();
+	if (body.name === undefined || body.price === undefined) {
+		return res.status(400).json({
 			status: "error",
 			code: "BAD_REQUEST",
 			message: "Incomplete json. There is no name or price!",
 		});
-		return;
 	}
+	next();
+};
+
+router.post("/:id", requsetBodyValidatorMiddlware, (req, res) => {
+	const id = req.params.id;
+
 	// TODO: maybe add middleware
 	if (products[id]) {
 		res.status(409).json({
@@ -61,12 +64,13 @@ router.post("/:id", (req, res) => {
 
 	const name = req.body.name;
 	const price = req.body.price;
+	res.sendStatus();
 
 	products[id] = new Product(id, name, price);
 	res.sendStatus(201);
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", requsetBodyValidatorMiddlware, (req, res) => {
 	const id = req.params.id;
 	// TODO: maybe add middleware
 	if (!products[id]) {
@@ -74,15 +78,6 @@ router.put("/:id", (req, res) => {
 			status: 404,
 			error: "NOT_FOUND",
 			message: `This id(${id}) not found in the data`,
-		});
-		return;
-	}
-	// TODO: maybe add middleware
-	if (req.body.name === undefined || req.body.price === undefined) {
-		res.status(400).json({
-			status: "error",
-			code: "BAD_REQUEST",
-			message: "Incomplete json. There is no name or price!",
 		});
 		return;
 	}
