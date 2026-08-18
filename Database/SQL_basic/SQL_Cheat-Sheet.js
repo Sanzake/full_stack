@@ -21,4 +21,13 @@ UPDATE tasks SET done = true WHERE id = 1;
 UPDATE tasks SET done = true WHERE id % 2 = 0;
 
 DELETE FROM tasks WHERE id != 2;
+
+
+ALTER TABLE tasks ADD COLUMN user_id int;
+
+SELECT tasks.title, users.name FROM tasks
+JOIN users ON tasks.user_id = users.id;
+
+SELCT users.name, COUNT(*) FROM tasks WHERE done = false GROUP BY user_id;
+
 */
