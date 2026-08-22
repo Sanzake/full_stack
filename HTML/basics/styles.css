@@ -1,0 +1,34 @@
+* {box-sizing: border-box;}
+
+h2 { color: lightblue }
+.highlight {background-color: lightcoral;}
+nav a {text-decoration: none;}
+#name {background-color: green;}
+
+.brbr {
+    border: 5px solid;
+    padding: 20px;
+    width: 200px;
+
+}
+
+.h2_first {
+    font-size: 90px;
+}
+
+.h2_second {
+    font-size: 3rem;
+}
+
+html {
+    font-size: 30px;
+}
+
+
+.div_first {
+    margin-bottom: 30px;
+}
+
+.div_second {
+    margin-top: 15px;
+}

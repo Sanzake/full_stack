@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>my page</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
 
     <body>
@@ -16,22 +17,80 @@
                 my <strong>link</strong> to <a href="google.com">google</a>
             </p>
             <article>
-                <h2>
+                <h2 class="h2_first">
                     post 1
                 </h2>
+                <p class="highlight">texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+                <img src="brbr.jpeg" alt="brbr patapim">
                 <p>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
                 <section>
                     <h3>reviews</h3>
                 </section>
             </article>
             <article>
-                <h2>
+                <h2 class="h2_second">
                     post 2
                 </h2>
                 <p>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+                <p class="highlight">texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
                 <section>
                     <h3>reviews</h3>
                 </section>
+            </article>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsZbTlQKZOl9Sf_hipDAEOzuo_xS3kyd-wYyRihwlvWQ&s=10" loading="lazy" alt="">
+            <table>
+                <thead>
+                    <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                        <th>B-Day</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dana</td>
+                        <td>Hen</td>
+                        <td>28</td>
+                        <td>Jerusalem</td>
+                        <td>22/02/1999</td>
+                    </tr>
+                    <tr>
+                        <td>Yossi</td>
+                        <td>Largo</td>
+                        <td>31</td>
+                        <td>Holon</td>
+                        <td>31/06/1995</td>
+                    </tr>
+                </tbody>
+            </table>
+            <form action="/register" method="POST">
+                <label for="name">name:</label>
+                <input type="text" id="name" name="name" required />
+
+                <label for="email">email:</label>
+                <input type="email" id="email" name="email" required />
+
+                <label for="age">age:</label>
+                <input type="number" id="age" name="age" required />
+
+                <label for="aproved">aproved:</label>
+                <input type="checkbox" id="aproved" name="aproved" required />
+
+                <button type="submit">sign-in</button>
+            </form>
+            <article>
+                <img src="brbr.jpeg" alt="", class="brbr">
+                <img src="brbr.jpeg" alt="" class="brbr">
+            </article>
+            <article>
+                <div class="div_first">
+                    <h1>asd</h1>
+                </div>
+                <div class="div_second">
+                    <h1>asd</h1>
+                </div>
             </article>
         </main>
          <footer>
