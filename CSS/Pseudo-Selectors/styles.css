@@ -1,0 +1,13 @@
+
+input:focus { outline: 6px solid blue; }
+.mytable tr:nth-child(odd) { background: #ff0000; }
+a[target="_blank"]::after {
+    content: " ->";
+    font-size: 0.9em;
+}
+
+button:hover { background: var(--main-color, green); }
+
+:root { --card-bg: red }
+.card {background: var(--card-bg);}
+.darkCard {--card-bg: black;}
