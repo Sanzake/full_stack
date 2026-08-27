@@ -13,3 +13,11 @@
     position: sticky;
     top: 0;
 }
+
+.inRow {
+    display: flex;
+    justify-content: space-between;
+    height: 200px;
+    align-items: center;
+    flex-wrap: wrap;
+}
